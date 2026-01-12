@@ -1,9 +1,10 @@
-import { Briefcase, Users, Calendar } from "lucide-react";
+import { Briefcase, Users, Calendar, MapPin } from "lucide-react";
 
 const experiences = [
   {
     title: "Student Relationship Officer",
     company: "Aptech",
+    location: "Karachi",
     period: "Present",
     type: "Current",
     description:
@@ -18,10 +19,11 @@ const experiences = [
   {
     title: "UI/UX Design Intern",
     company: "Hyperlink",
-    period: "3 Months",
-    type: "Past",
+    location: "Karachi",
+    period: "Apr 2023 - Jun 2023",
+    type: "Internship",
     description:
-      "Completed a 3-month internship focusing on user interface and user experience design. Worked on real-world design projects and learned industry-standard design tools and methodologies.",
+      "Collaborated with the design team to develop user-centered design solutions tailored to client requirements. Worked on real-world design projects and learned industry-standard design tools.",
     responsibilities: [
       "UI/UX design projects",
       "Wireframing & prototyping",
@@ -31,16 +33,17 @@ const experiences = [
   },
   {
     title: "Teaching Assistant",
-    company: "Educational Institution",
-    period: "1 Year",
+    company: "IJK Schooling System",
+    location: "Karachi",
+    period: "Feb 2021 - Jun 2022",
     type: "Past",
     description:
-      "Supported instructors in delivering educational content and mentored students in their learning journey. Gained valuable experience in education and communication.",
+      "Prepared teaching materials, organized classroom resources, and maintained accurate student records ensuring smooth administrative operations in the educational setting.",
     responsibilities: [
-      "Assisted in course delivery",
-      "Student mentoring",
-      "Assignment evaluation",
-      "Technical support for students",
+      "Prepared teaching materials",
+      "Organized classroom resources",
+      "Maintained student records",
+      "Student mentoring & support",
     ],
   },
 ];
@@ -50,6 +53,9 @@ const Experience = () => {
     <section id="experience" className="py-24 px-4 relative">
       <div className="max-w-6xl mx-auto">
         <div className="text-center mb-16">
+          <span className="inline-block px-4 py-1.5 rounded-full bg-primary/10 border border-primary/20 text-primary text-sm font-medium mb-4">
+            Professional Journey
+          </span>
           <h2 className="text-4xl md:text-5xl font-bold mb-4">
             Work <span className="gradient-text">Experience</span>
           </h2>
@@ -58,16 +64,18 @@ const Experience = () => {
           </p>
         </div>
 
-        <div className="grid md:grid-cols-2 gap-8">
+        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
           {experiences.map((exp, index) => (
             <div
               key={index}
-              className="glass-card rounded-2xl p-8 hover:border-primary/30 transition-all group relative overflow-hidden"
+              className="glass-card rounded-2xl p-6 hover:border-primary/30 transition-all group relative overflow-hidden"
             >
               {/* Badge */}
               <div
                 className={`absolute top-4 right-4 px-3 py-1 rounded-full text-xs font-semibold ${
                   exp.type === "Current"
+                    ? "bg-green-500/20 text-green-400"
+                    : exp.type === "Internship"
                     ? "bg-primary/20 text-primary"
                     : "bg-muted text-muted-foreground"
                 }`}
@@ -80,31 +88,37 @@ const Experience = () => {
 
               <div className="relative">
                 <div className="flex items-center gap-4 mb-4">
-                  <div className="w-14 h-14 rounded-xl bg-primary/20 flex items-center justify-center group-hover:bg-primary/30 transition-colors">
-                    <Briefcase className="w-7 h-7 text-primary" />
+                  <div className="w-12 h-12 rounded-xl bg-gradient-to-br from-primary/20 to-accent/10 flex items-center justify-center group-hover:scale-110 transition-transform">
+                    <Briefcase className="w-6 h-6 text-primary" />
                   </div>
                   <div>
-                    <h3 className="text-xl font-bold">{exp.title}</h3>
-                    <p className="text-primary">{exp.company}</p>
+                    <h3 className="text-lg font-bold leading-tight">{exp.title}</h3>
+                    <p className="text-primary font-medium">{exp.company}</p>
                   </div>
                 </div>
 
-                <div className="flex items-center gap-2 text-muted-foreground mb-4">
-                  <Calendar className="w-4 h-4" />
-                  <span className="text-sm">{exp.period}</span>
+                <div className="flex flex-wrap items-center gap-3 text-muted-foreground mb-4 text-sm">
+                  <div className="flex items-center gap-1.5">
+                    <Calendar className="w-3.5 h-3.5" />
+                    <span>{exp.period}</span>
+                  </div>
+                  <div className="flex items-center gap-1.5">
+                    <MapPin className="w-3.5 h-3.5" />
+                    <span>{exp.location}</span>
+                  </div>
                 </div>
 
-                <p className="text-muted-foreground mb-6">{exp.description}</p>
+                <p className="text-muted-foreground text-sm mb-5 leading-relaxed">{exp.description}</p>
 
                 <div>
-                  <h4 className="text-sm font-semibold mb-3 flex items-center gap-2">
-                    <Users className="w-4 h-4 text-primary" />
+                  <h4 className="text-xs font-semibold mb-2 flex items-center gap-2 text-foreground/80">
+                    <Users className="w-3.5 h-3.5 text-primary" />
                     Key Responsibilities
                   </h4>
-                  <ul className="space-y-2">
+                  <ul className="space-y-1.5">
                     {exp.responsibilities.map((resp, idx) => (
-                      <li key={idx} className="flex items-center gap-2 text-sm text-muted-foreground">
-                        <span className="w-1.5 h-1.5 rounded-full bg-primary" />
+                      <li key={idx} className="flex items-center gap-2 text-xs text-muted-foreground">
+                        <span className="w-1 h-1 rounded-full bg-primary flex-shrink-0" />
                         {resp}
                       </li>
                     ))}
