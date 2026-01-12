@@ -1,40 +1,49 @@
-import { GraduationCap, School, BookOpen, Award, Palette } from "lucide-react";
+import { GraduationCap, School, BookOpen, Award, Palette, Calendar, MapPin } from "lucide-react";
 
 const educationData = [
   {
     icon: GraduationCap,
     level: "University",
     institution: "Iqra University",
-    degree: "Software Engineering",
+    location: "Karachi",
+    degree: "BS in Software Engineering",
+    period: "2020 - 2025",
     description: "Graduated with a focus on software development, programming fundamentals, and modern web technologies.",
   },
   {
     icon: Award,
     level: "Diploma",
     institution: "Aptech",
+    location: "Karachi",
     degree: "ACCP Prime (3 Years)",
+    period: "2021 - 2024",
     description: "Completed comprehensive 3-year ACCP Prime diploma program covering advanced programming, software development, and IT skills.",
   },
   {
     icon: Palette,
     level: "Course",
     institution: "Hyperlink",
+    location: "Karachi",
     degree: "UI/UX Design (3 Months)",
+    period: "2023",
     description: "Completed professional UI/UX design course focusing on user interface design, user experience principles, and design tools.",
   },
   {
     icon: School,
     level: "College",
-    institution: "Gov. Degree Science & Commerce College",
+    institution: "Govt. Degree Science & Commerce College",
     location: "Gulshan Iqbal, Block 7",
-    degree: "Pre-Engineering",
+    degree: "Intermediate (Pre-Engineering)",
+    period: "2018 - 2020",
     description: "Completed intermediate education with focus on Mathematics, Physics, and Computer Science.",
   },
   {
     icon: BookOpen,
     level: "School",
     institution: "IJK Schooling System",
+    location: "Karachi",
     degree: "Matriculation",
+    period: "2016 - 2018",
     description: "Built strong academic foundation with excellence in science and mathematics.",
   },
 ];
@@ -44,6 +53,9 @@ const Education = () => {
     <section id="education" className="py-24 px-4 relative bg-secondary/30">
       <div className="max-w-6xl mx-auto">
         <div className="text-center mb-16">
+          <span className="inline-block px-4 py-1.5 rounded-full bg-primary/10 border border-primary/20 text-primary text-sm font-medium mb-4">
+            Academic Background
+          </span>
           <h2 className="text-4xl md:text-5xl font-bold mb-4">
             My <span className="gradient-text">Education</span>
           </h2>
@@ -71,24 +83,33 @@ const Education = () => {
                 <div className={`ml-12 md:ml-0 md:w-1/2 ${index % 2 === 0 ? "md:pr-12" : "md:pl-12"}`}>
                   <div className="glass-card rounded-2xl p-6 hover:border-primary/30 transition-all group">
                     <div className="flex items-center gap-4 mb-4">
-                      <div className="w-12 h-12 rounded-xl bg-primary/20 flex items-center justify-center group-hover:bg-primary/30 transition-colors">
+                      <div className="w-12 h-12 rounded-xl bg-gradient-to-br from-primary/20 to-accent/10 flex items-center justify-center group-hover:scale-110 transition-transform">
                         <edu.icon className="w-6 h-6 text-primary" />
                       </div>
                       <div>
-                        <span className="text-sm text-primary font-medium">{edu.level}</span>
-                        <h3 className="text-xl font-bold">{edu.institution}</h3>
+                        <span className="text-xs text-primary font-medium uppercase tracking-wider">{edu.level}</span>
+                        <h3 className="text-lg font-bold">{edu.institution}</h3>
                       </div>
                     </div>
 
-                    {edu.location && (
-                      <p className="text-sm text-muted-foreground mb-2">{edu.location}</p>
-                    )}
+                    <div className="flex flex-wrap items-center gap-3 text-muted-foreground mb-3 text-sm">
+                      <div className="flex items-center gap-1.5">
+                        <Calendar className="w-3.5 h-3.5 text-primary" />
+                        <span>{edu.period}</span>
+                      </div>
+                      {edu.location && (
+                        <div className="flex items-center gap-1.5">
+                          <MapPin className="w-3.5 h-3.5 text-primary" />
+                          <span>{edu.location}</span>
+                        </div>
+                      )}
+                    </div>
 
-                    <div className="inline-block px-3 py-1 rounded-full bg-primary/10 text-primary text-sm font-medium mb-4">
+                    <div className="inline-block px-3 py-1 rounded-full bg-gradient-to-r from-primary/10 to-accent/10 text-primary text-sm font-medium mb-3 border border-primary/20">
                       {edu.degree}
                     </div>
 
-                    <p className="text-muted-foreground">{edu.description}</p>
+                    <p className="text-muted-foreground text-sm leading-relaxed">{edu.description}</p>
                   </div>
                 </div>
 

@@ -23,6 +23,30 @@ const skills = [
     color: "from-purple-400 to-pink-600",
     description: "User interface & experience design",
   },
+  {
+    name: "Bootstrap",
+    level: 80,
+    color: "from-violet-400 to-purple-600",
+    description: "Responsive framework & components",
+  },
+  {
+    name: "WordPress",
+    level: 70,
+    color: "from-sky-400 to-blue-600",
+    description: "CMS & theme development",
+  },
+];
+
+const additionalSkills = [
+  "Shopify",
+  "E-Commerce",
+  "Microsoft Office",
+  "Git",
+  "Responsive Design",
+  "Web Designing",
+  "Problem Solving",
+  "Communication",
+  "Team Collaboration",
 ];
 
 const Skills = () => {
@@ -30,6 +54,9 @@ const Skills = () => {
     <section id="skills" className="py-24 px-4 relative bg-secondary/30">
       <div className="max-w-6xl mx-auto">
         <div className="text-center mb-16">
+          <span className="inline-block px-4 py-1.5 rounded-full bg-primary/10 border border-primary/20 text-primary text-sm font-medium mb-4">
+            Skills & Expertise
+          </span>
           <h2 className="text-4xl md:text-5xl font-bold mb-4">
             My <span className="gradient-text">Skills</span>
           </h2>
@@ -38,34 +65,34 @@ const Skills = () => {
           </p>
         </div>
 
-        <div className="grid md:grid-cols-3 gap-8 max-w-4xl mx-auto">
+        <div className="grid grid-cols-2 md:grid-cols-3 gap-6 max-w-5xl mx-auto">
           {skills.map((skill, index) => (
             <div
               key={index}
-              className="glass-card rounded-2xl p-8 text-center hover:border-primary/30 transition-all group"
+              className="glass-card rounded-2xl p-6 text-center hover:border-primary/30 transition-all group"
             >
               {/* Skill icon representation */}
-              <div className="relative w-32 h-32 mx-auto mb-6">
+              <div className="relative w-28 h-28 mx-auto mb-4">
                 {/* Outer ring */}
                 <svg className="w-full h-full -rotate-90">
                   <circle
-                    cx="64"
-                    cy="64"
-                    r="56"
+                    cx="56"
+                    cy="56"
+                    r="48"
                     stroke="currentColor"
-                    strokeWidth="8"
+                    strokeWidth="6"
                     fill="none"
                     className="text-secondary"
                   />
                   <circle
-                    cx="64"
-                    cy="64"
-                    r="56"
+                    cx="56"
+                    cy="56"
+                    r="48"
                     stroke="url(#gradient)"
-                    strokeWidth="8"
+                    strokeWidth="6"
                     fill="none"
                     strokeLinecap="round"
-                    strokeDasharray={`${skill.level * 3.52} 352`}
+                    strokeDasharray={`${skill.level * 3.02} 302`}
                     className="transition-all duration-1000"
                   />
                   <defs>
@@ -78,32 +105,28 @@ const Skills = () => {
                 
                 {/* Percentage in center */}
                 <div className="absolute inset-0 flex items-center justify-center">
-                  <span className="text-2xl font-bold gradient-text">{skill.level}%</span>
+                  <span className="text-xl font-bold gradient-text">{skill.level}%</span>
                 </div>
               </div>
 
-              <h3 className="text-2xl font-bold mb-2">{skill.name}</h3>
-              <p className="text-muted-foreground text-sm">{skill.description}</p>
+              <h3 className="text-xl font-bold mb-1">{skill.name}</h3>
+              <p className="text-muted-foreground text-xs">{skill.description}</p>
             </div>
           ))}
         </div>
 
-        {/* Additional info */}
+        {/* Additional Skills */}
         <div className="mt-16 text-center">
-          <p className="text-muted-foreground mb-6">
-            Always learning and expanding my skill set
-          </p>
-          <div className="flex flex-wrap justify-center gap-3">
-            {["Git", "Responsive Design", "Problem Solving", "Communication", "Team Collaboration"].map(
-              (tag, index) => (
-                <span
-                  key={index}
-                  className="px-4 py-2 rounded-full bg-secondary text-sm text-muted-foreground hover:text-primary hover:bg-primary/10 transition-colors cursor-default"
-                >
-                  {tag}
-                </span>
-              )
-            )}
+          <h3 className="text-xl font-semibold mb-6">Additional Skills & Tools</h3>
+          <div className="flex flex-wrap justify-center gap-3 max-w-3xl mx-auto">
+            {additionalSkills.map((tag, index) => (
+              <span
+                key={index}
+                className="px-5 py-2.5 rounded-full glass-card text-sm font-medium text-muted-foreground hover:text-primary hover:border-primary/30 transition-all cursor-default"
+              >
+                {tag}
+              </span>
+            ))}
           </div>
         </div>
       </div>
