@@ -17,6 +17,12 @@ const skills = [
     color: "from-yellow-400 to-yellow-600",
     description: "DOM manipulation & ES6+",
   },
+  {
+    name: "UI/UX",
+    level: 80,
+    color: "from-purple-400 to-pink-600",
+    description: "User interface & experience design",
+  },
 ];
 
 const Skills = () => {

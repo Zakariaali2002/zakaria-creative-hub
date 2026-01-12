@@ -16,6 +16,20 @@ const experiences = [
     ],
   },
   {
+    title: "UI/UX Design Intern",
+    company: "Hyperlink",
+    period: "3 Months",
+    type: "Past",
+    description:
+      "Completed a 3-month internship focusing on user interface and user experience design. Worked on real-world design projects and learned industry-standard design tools and methodologies.",
+    responsibilities: [
+      "UI/UX design projects",
+      "Wireframing & prototyping",
+      "User research & testing",
+      "Design tool proficiency (Figma)",
+    ],
+  },
+  {
     title: "Teaching Assistant",
     company: "Educational Institution",
     period: "1 Year",
