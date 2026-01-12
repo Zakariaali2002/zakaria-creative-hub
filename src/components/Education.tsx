@@ -1,4 +1,4 @@
-import { GraduationCap, School, BookOpen } from "lucide-react";
+import { GraduationCap, School, BookOpen, Award, Palette } from "lucide-react";
 
 const educationData = [
   {
@@ -7,6 +7,20 @@ const educationData = [
     institution: "Iqra University",
     degree: "Software Engineering",
     description: "Graduated with a focus on software development, programming fundamentals, and modern web technologies.",
+  },
+  {
+    icon: Award,
+    level: "Diploma",
+    institution: "Aptech",
+    degree: "ACCP Prime (3 Years)",
+    description: "Completed comprehensive 3-year ACCP Prime diploma program covering advanced programming, software development, and IT skills.",
+  },
+  {
+    icon: Palette,
+    level: "Course",
+    institution: "Hyperlink",
+    degree: "UI/UX Design (3 Months)",
+    description: "Completed professional UI/UX design course focusing on user interface design, user experience principles, and design tools.",
   },
   {
     icon: School,
@@ -19,7 +33,7 @@ const educationData = [
   {
     icon: BookOpen,
     level: "School",
-    institution: "Maina School IJK Schooling System",
+    institution: "IJK Schooling System",
     degree: "Matriculation",
     description: "Built strong academic foundation with excellence in science and mathematics.",
   },
