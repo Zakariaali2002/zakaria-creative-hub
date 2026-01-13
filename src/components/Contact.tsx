@@ -1,4 +1,10 @@
-import { Mail, Phone, MessageCircle, Send } from "lucide-react";
+import { useState } from "react";
+import { Mail, Phone, MessageCircle, Send, User, FileText } from "lucide-react";
+import { Input } from "@/components/ui/input";
+import { Label } from "@/components/ui/label";
+import { Textarea } from "@/components/ui/textarea";
+import { Button } from "@/components/ui/button";
+import { useToast } from "@/hooks/use-toast";
 
 const contactLinks = [
   {
@@ -28,6 +34,42 @@ const contactLinks = [
 ];
 
 const Contact = () => {
+  const { toast } = useToast();
+  const [formData, setFormData] = useState({
+    name: "",
+    email: "",
+    subject: "",
+    message: "",
+  });
+
+  const handleSubmit = (e: React.FormEvent) => {
+    e.preventDefault();
+    
+    // Validate inputs
+    if (!formData.name.trim() || !formData.message.trim()) {
+      toast({
+        title: "Error",
+        description: "Please fill in all required fields.",
+        variant: "destructive",
+      });
+      return;
+    }
+
+    // Create WhatsApp message
+    const whatsappMessage = `*New Contact from Portfolio*%0A%0A*Name:* ${encodeURIComponent(formData.name)}%0A*Email:* ${encodeURIComponent(formData.email)}%0A*Subject:* ${encodeURIComponent(formData.subject)}%0A%0A*Message:*%0A${encodeURIComponent(formData.message)}`;
+    
+    // Open WhatsApp with the message
+    window.open(`https://wa.me/923182705359?text=${whatsappMessage}`, "_blank");
+    
+    toast({
+      title: "Redirecting to WhatsApp",
+      description: "Your message is ready to send!",
+    });
+
+    // Reset form
+    setFormData({ name: "", email: "", subject: "", message: "" });
+  };
+
   return (
     <section id="contact" className="py-24 px-4 relative">
       <div className="max-w-6xl mx-auto">
@@ -40,7 +82,7 @@ const Contact = () => {
           </p>
         </div>
 
-        <div className="grid md:grid-cols-3 gap-6 max-w-4xl mx-auto">
+        <div className="grid md:grid-cols-3 gap-6 max-w-4xl mx-auto mb-16">
           {contactLinks.map((contact, index) => (
             <a
               key={index}
@@ -59,23 +101,89 @@ const Contact = () => {
           ))}
         </div>
 
-        {/* Call to action */}
-        <div className="mt-16 text-center">
-          <div className="glass-card rounded-2xl p-8 max-w-2xl mx-auto gradient-border">
+        {/* Contact Form */}
+        <div className="glass-card rounded-2xl p-8 md:p-12 max-w-3xl mx-auto gradient-border">
+          <div className="text-center mb-8">
             <Send className="w-12 h-12 text-primary mx-auto mb-4" />
-            <h3 className="text-2xl font-bold mb-4">Let's Work Together</h3>
-            <p className="text-muted-foreground mb-6">
-              Whether you have a project in mind, need guidance on your tech journey, 
-              or want to discuss opportunities, I'm here to help!
+            <h3 className="text-2xl font-bold mb-2">Send a Message</h3>
+            <p className="text-muted-foreground">
+              Fill out the form below and it will be sent directly to my WhatsApp!
             </p>
-            <a
-              href="mailto:zakriaali452@gmail.com"
-              className="inline-flex items-center gap-2 px-8 py-3 rounded-lg bg-primary text-primary-foreground font-semibold hover:opacity-90 transition-all glow-effect hover:scale-105"
-            >
-              <Mail className="w-5 h-5" />
-              Send Message
-            </a>
           </div>
+
+          <form onSubmit={handleSubmit} className="space-y-6">
+            <div className="grid md:grid-cols-2 gap-6">
+              <div className="space-y-2">
+                <Label htmlFor="name" className="flex items-center gap-2">
+                  <User className="w-4 h-4 text-primary" />
+                  Your Name *
+                </Label>
+                <Input
+                  id="name"
+                  placeholder="John Doe"
+                  value={formData.name}
+                  onChange={(e) => setFormData({ ...formData, name: e.target.value })}
+                  className="bg-secondary/50 border-border focus:border-primary"
+                  required
+                  maxLength={100}
+                />
+              </div>
+              <div className="space-y-2">
+                <Label htmlFor="email" className="flex items-center gap-2">
+                  <Mail className="w-4 h-4 text-primary" />
+                  Your Email
+                </Label>
+                <Input
+                  id="email"
+                  type="email"
+                  placeholder="john@example.com"
+                  value={formData.email}
+                  onChange={(e) => setFormData({ ...formData, email: e.target.value })}
+                  className="bg-secondary/50 border-border focus:border-primary"
+                  maxLength={255}
+                />
+              </div>
+            </div>
+
+            <div className="space-y-2">
+              <Label htmlFor="subject" className="flex items-center gap-2">
+                <FileText className="w-4 h-4 text-primary" />
+                Subject
+              </Label>
+              <Input
+                id="subject"
+                placeholder="What is this about?"
+                value={formData.subject}
+                onChange={(e) => setFormData({ ...formData, subject: e.target.value })}
+                className="bg-secondary/50 border-border focus:border-primary"
+                maxLength={200}
+              />
+            </div>
+
+            <div className="space-y-2">
+              <Label htmlFor="message" className="flex items-center gap-2">
+                <MessageCircle className="w-4 h-4 text-primary" />
+                Message *
+              </Label>
+              <Textarea
+                id="message"
+                placeholder="Your message here..."
+                value={formData.message}
+                onChange={(e) => setFormData({ ...formData, message: e.target.value })}
+                className="bg-secondary/50 border-border focus:border-primary min-h-[150px]"
+                required
+                maxLength={1000}
+              />
+            </div>
+
+            <Button
+              type="submit"
+              className="w-full bg-gradient-to-r from-primary to-accent text-primary-foreground font-semibold py-6 text-lg hover:opacity-90 transition-all hover:scale-[1.02] shadow-lg shadow-primary/25"
+            >
+              <MessageCircle className="w-5 h-5 mr-2" />
+              Send via WhatsApp
+            </Button>
+          </form>
         </div>
       </div>
     </section>

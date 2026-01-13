@@ -57,7 +57,7 @@ const Navbar = () => {
             </a>
           ))}
           <a
-            href="#contact"
+            href="/cv"
             className="ml-4 px-5 py-2.5 rounded-lg bg-gradient-to-r from-primary to-accent text-primary-foreground font-medium hover:opacity-90 transition-all hover:scale-105 shadow-lg shadow-primary/25 flex items-center gap-2"
           >
             <Download className="w-4 h-4" />
@@ -89,7 +89,7 @@ const Navbar = () => {
               </a>
             ))}
             <a
-              href="#contact"
+              href="/cv"
               className="mt-4 px-5 py-3 rounded-xl bg-gradient-to-r from-primary to-accent text-primary-foreground font-medium text-center"
               onClick={() => setIsMobileMenuOpen(false)}
             >
