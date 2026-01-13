@@ -95,6 +95,21 @@ const CV = () => {
           {/* Experience */}
           <section className="mb-10">
             <h2 className="text-2xl font-bold mb-6 gradient-text">Work Experience</h2>
+            <div className="space-y-6 mt-6">
+              <div>
+                <div className="flex flex-col md:flex-row md:justify-between mb-2">
+                  <h3 className="font-semibold text-lg">E-Commerce Manager</h3>
+                  <span className="text-primary font-medium">2019 - Present (5+ Years)</span>
+                </div>
+                <p className="text-muted-foreground mb-2">Freelance / Self-Employed</p>
+                <ul className="list-disc list-inside text-muted-foreground space-y-1 text-sm">
+                  <li>Managed multi-platform e-commerce on Facebook, Instagram, WhatsApp & Websites</li>
+                  <li>End-to-end order management from placement to delivery</li>
+                  <li>Customer communication, support & relationship management</li>
+                  <li>Inventory management and stock coordination</li>
+                </ul>
+              </div>
+            </div>
             <div className="space-y-6">
               <div>
                 <div className="flex flex-col md:flex-row md:justify-between mb-2">

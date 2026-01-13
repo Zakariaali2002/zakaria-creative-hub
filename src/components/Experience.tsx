@@ -1,12 +1,30 @@
-import { Briefcase, Users, Calendar, MapPin } from "lucide-react";
+import { Briefcase, Users, Calendar, MapPin, ShoppingCart } from "lucide-react";
 
 const experiences = [
+  {
+    title: "E-Commerce Manager",
+    company: "Freelance / Self-Employed",
+    location: "Karachi",
+    period: "2019 - Present",
+    type: "Current",
+    icon: ShoppingCart,
+    description:
+      "Managing complete end-to-end e-commerce operations across multiple platforms including Facebook, Instagram, WhatsApp, and websites. Handling everything from order management to delivery coordination.",
+    responsibilities: [
+      "Multi-platform store management (FB, IG, WhatsApp, Website)",
+      "Order processing & customer communication",
+      "Inventory & stock management",
+      "Delivery coordination & tracking",
+      "Customer support & relationship management",
+    ],
+  },
   {
     title: "Student Relationship Officer",
     company: "Aptech",
     location: "Karachi",
     period: "Present",
     type: "Current",
+    icon: Briefcase,
     description:
       "Managing student relationships and ensuring a positive learning experience. Bridging the gap between students and the institution to help them achieve their educational goals in technology.",
     responsibilities: [
@@ -22,6 +40,7 @@ const experiences = [
     location: "Karachi",
     period: "Apr 2023 - Jun 2023",
     type: "Internship",
+    icon: Briefcase,
     description:
       "Collaborated with the design team to develop user-centered design solutions tailored to client requirements. Worked on real-world design projects and learned industry-standard design tools.",
     responsibilities: [
@@ -37,6 +56,7 @@ const experiences = [
     location: "Karachi",
     period: "Feb 2021 - Jun 2022",
     type: "Past",
+    icon: Briefcase,
     description:
       "Prepared teaching materials, organized classroom resources, and maintained accurate student records ensuring smooth administrative operations in the educational setting.",
     responsibilities: [
@@ -89,7 +109,7 @@ const Experience = () => {
               <div className="relative">
                 <div className="flex items-center gap-4 mb-4">
                   <div className="w-12 h-12 rounded-xl bg-gradient-to-br from-primary/20 to-accent/10 flex items-center justify-center group-hover:scale-110 transition-transform">
-                    <Briefcase className="w-6 h-6 text-primary" />
+                    <exp.icon className="w-6 h-6 text-primary" />
                   </div>
                   <div>
                     <h3 className="text-lg font-bold leading-tight">{exp.title}</h3>
