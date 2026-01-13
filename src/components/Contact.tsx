@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { Mail, Phone, MessageCircle, Send, User, FileText } from "lucide-react";
+import { Mail, Phone, MessageCircle, Send, User, FileText, Linkedin } from "lucide-react";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { Textarea } from "@/components/ui/textarea";
@@ -31,7 +31,21 @@ const contactLinks = [
     color: "hover:bg-red-400/20 hover:border-red-400/50",
     iconColor: "text-red-400",
   },
+  {
+    icon: Linkedin,
+    label: "LinkedIn",
+    value: "Zakaria Ali",
+    href: "https://www.linkedin.com/in/zakaria-ali-54642b254",
+    color: "hover:bg-blue-600/20 hover:border-blue-600/50",
+    iconColor: "text-blue-500",
+  },
 ];
+
+const BehanceIcon = () => (
+  <svg className="w-8 h-8" viewBox="0 0 24 24" fill="currentColor">
+    <path d="M22 7h-7v-2h7v2zm1.726 10c-.442 1.297-2.029 3-5.101 3-3.074 0-5.564-1.729-5.564-5.675 0-3.91 2.325-5.92 5.466-5.92 3.082 0 4.964 1.782 5.375 4.426.078.506.109 1.188.095 2.14h-8.027c.13 3.211 3.483 3.312 4.588 2.029h3.168zm-7.686-4h4.965c-.105-1.547-1.136-2.219-2.477-2.219-1.466 0-2.277.768-2.488 2.219zm-9.574 6.988h-6.466v-14.967h6.953c5.476.081 5.58 5.444 2.72 6.906 3.461 1.26 3.577 8.061-3.207 8.061zm-3.466-8.988h3.584c2.508 0 2.906-3-.312-3h-3.272v3zm3.391 3h-3.391v3.016h3.341c3.055 0 2.868-3.016.05-3.016z"/>
+  </svg>
+);
 
 const Contact = () => {
   const { toast } = useToast();
@@ -82,23 +96,37 @@ const Contact = () => {
           </p>
         </div>
 
-        <div className="grid md:grid-cols-3 gap-6 max-w-4xl mx-auto mb-16">
+        <div className="grid grid-cols-2 md:grid-cols-5 gap-4 max-w-5xl mx-auto mb-16">
           {contactLinks.map((contact, index) => (
             <a
               key={index}
               href={contact.href}
               target="_blank"
               rel="noopener noreferrer"
-              className={`glass-card rounded-2xl p-8 text-center transition-all group ${contact.color}`}
+              className={`glass-card rounded-2xl p-6 text-center transition-all group ${contact.color}`}
             >
-              <div className="w-16 h-16 rounded-2xl bg-secondary flex items-center justify-center mx-auto mb-6 group-hover:scale-110 transition-transform">
-                <contact.icon className={`w-8 h-8 ${contact.iconColor}`} />
+              <div className="w-14 h-14 rounded-2xl bg-secondary flex items-center justify-center mx-auto mb-4 group-hover:scale-110 transition-transform">
+                <contact.icon className={`w-7 h-7 ${contact.iconColor}`} />
               </div>
 
-              <h3 className="text-xl font-bold mb-2">{contact.label}</h3>
-              <p className="text-muted-foreground text-sm break-all">{contact.value}</p>
+              <h3 className="text-lg font-bold mb-1">{contact.label}</h3>
+              <p className="text-muted-foreground text-xs break-all">{contact.value}</p>
             </a>
           ))}
+          {/* Behance Card */}
+          <a
+            href="https://www.behance.net/zakariaali2002"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="glass-card rounded-2xl p-6 text-center transition-all group hover:bg-blue-700/20 hover:border-blue-700/50"
+          >
+            <div className="w-14 h-14 rounded-2xl bg-secondary flex items-center justify-center mx-auto mb-4 group-hover:scale-110 transition-transform text-blue-600">
+              <BehanceIcon />
+            </div>
+
+            <h3 className="text-lg font-bold mb-1">Behance</h3>
+            <p className="text-muted-foreground text-xs break-all">zakariaali2002</p>
+          </a>
         </div>
 
         {/* Contact Form */}
