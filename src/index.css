@@ -6,44 +6,44 @@
 
 @layer base {
   :root {
-    --background: 40 33% 98%;
-    --foreground: 150 30% 15%;
+    --background: 0 0% 100%;
+    --foreground: 222 47% 11%;
 
-    --card: 40 40% 96%;
-    --card-foreground: 150 30% 15%;
+    --card: 0 0% 98%;
+    --card-foreground: 222 47% 11%;
 
-    --popover: 40 33% 98%;
-    --popover-foreground: 150 30% 15%;
+    --popover: 0 0% 100%;
+    --popover-foreground: 222 47% 11%;
 
-    --primary: 160 84% 30%;
-    --primary-foreground: 40 33% 98%;
+    --primary: 199 89% 48%;
+    --primary-foreground: 0 0% 100%;
 
-    --secondary: 40 30% 92%;
-    --secondary-foreground: 150 30% 20%;
+    --secondary: 210 40% 96%;
+    --secondary-foreground: 222 47% 11%;
 
-    --muted: 40 25% 93%;
-    --muted-foreground: 150 15% 40%;
+    --muted: 210 40% 96%;
+    --muted-foreground: 215 16% 47%;
 
-    --accent: 145 60% 38%;
-    --accent-foreground: 40 33% 98%;
+    --accent: 174 72% 40%;
+    --accent-foreground: 0 0% 100%;
 
     --destructive: 0 84% 60%;
     --destructive-foreground: 0 0% 100%;
 
-    --border: 40 25% 88%;
-    --input: 40 25% 88%;
-    --ring: 160 84% 30%;
+    --border: 214 32% 91%;
+    --input: 214 32% 91%;
+    --ring: 199 89% 48%;
 
     --radius: 0.75rem;
 
-    /* Custom gradient - Emerald tones */
-    --gradient-primary: linear-gradient(135deg, hsl(160 84% 30%) 0%, hsl(145 60% 38%) 100%);
-    --gradient-text: linear-gradient(135deg, hsl(160 84% 30%) 0%, hsl(145 60% 38%) 50%, hsl(170 70% 35%) 100%);
-    --gradient-card: linear-gradient(145deg, hsl(40 40% 98%) 0%, hsl(40 35% 95%) 100%);
+    /* Custom gradient */
+    --gradient-primary: linear-gradient(135deg, hsl(199 89% 48%) 0%, hsl(174 72% 40%) 100%);
+    --gradient-text: linear-gradient(135deg, hsl(199 89% 48%) 0%, hsl(174 72% 40%) 50%, hsl(280 72% 55%) 100%);
+    --gradient-card: linear-gradient(145deg, hsl(0 0% 100%) 0%, hsl(210 40% 98%) 100%);
     
-    /* Glow effects - Emerald glow */
-    --glow-primary: 0 4px 20px hsl(160 84% 30% / 0.18);
-    --glow-soft: 0 8px 40px hsl(160 84% 30% / 0.12);
+    /* Glow effects */
+    --glow-primary: 0 4px 20px hsl(199 89% 48% / 0.15);
+    --glow-soft: 0 8px 40px hsl(199 89% 48% / 0.1);
   }
 }
 
@@ -100,7 +100,7 @@
   }
 
   .text-glow {
-    text-shadow: 0 0 30px hsl(160 84% 30% / 0.3);
+    text-shadow: 0 0 30px hsl(199 89% 48% / 0.3);
   }
 
   .animate-float {
@@ -126,8 +126,8 @@
 }
 
 @keyframes pulse-glow {
-  0%, 100% { box-shadow: 0 4px 20px hsl(160 84% 30% / 0.15); }
-  50% { box-shadow: 0 8px 40px hsl(160 84% 30% / 0.25); }
+  0%, 100% { box-shadow: 0 4px 20px hsl(199 89% 48% / 0.15); }
+  50% { box-shadow: 0 8px 40px hsl(199 89% 48% / 0.25); }
 }
 
 @keyframes slide-up {
@@ -152,14 +152,14 @@
 }
 
 ::-webkit-scrollbar-track {
-  background: hsl(40 33% 96%);
+  background: hsl(210 40% 98%);
 }
 
 ::-webkit-scrollbar-thumb {
-  background: hsl(160 40% 70%);
+  background: hsl(214 32% 85%);
   border-radius: 4px;
 }
 
 ::-webkit-scrollbar-thumb:hover {
-  background: hsl(160 84% 30%);
+  background: hsl(199 89% 48%);
 }
