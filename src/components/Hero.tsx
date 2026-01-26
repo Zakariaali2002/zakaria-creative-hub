@@ -1,4 +1,4 @@
-import { ArrowDown, Code2, Sparkles, MapPin, Linkedin } from "lucide-react";
+import { ArrowDown, Code2, Sparkles, MapPin, Linkedin, Github } from "lucide-react";
 
 const Hero = () => {
   return (
@@ -80,6 +80,15 @@ const Hero = () => {
             aria-label="LinkedIn"
           >
             <Linkedin className="w-6 h-6 text-blue-400 group-hover:text-blue-300" />
+          </a>
+          <a
+            href="https://github.com/Zakariaali2002"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="p-3 rounded-xl glass-card hover:bg-gray-500/20 hover:border-gray-500/50 transition-all hover:scale-110 group"
+            aria-label="GitHub"
+          >
+            <Github className="w-6 h-6 text-gray-300 group-hover:text-white" />
           </a>
           <a
             href="https://www.behance.net/zakariaali2002"

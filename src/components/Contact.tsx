@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { Mail, Phone, MessageCircle, Send, User, FileText, Linkedin } from "lucide-react";
+import { Mail, Phone, MessageCircle, Send, User, FileText, Linkedin, Github } from "lucide-react";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { Textarea } from "@/components/ui/textarea";
@@ -38,6 +38,14 @@ const contactLinks = [
     href: "https://www.linkedin.com/in/zakaria-ali-54642b254",
     color: "hover:bg-blue-600/20 hover:border-blue-600/50",
     iconColor: "text-blue-500",
+  },
+  {
+    icon: Github,
+    label: "GitHub",
+    value: "Zakariaali2002",
+    href: "https://github.com/Zakariaali2002",
+    color: "hover:bg-gray-500/20 hover:border-gray-500/50",
+    iconColor: "text-gray-300",
   },
 ];
 
@@ -96,7 +104,7 @@ const Contact = () => {
           </p>
         </div>
 
-        <div className="grid grid-cols-2 md:grid-cols-5 gap-4 max-w-5xl mx-auto mb-16">
+        <div className="grid grid-cols-2 md:grid-cols-6 gap-4 max-w-6xl mx-auto mb-16">
           {contactLinks.map((contact, index) => (
             <a
               key={index}
